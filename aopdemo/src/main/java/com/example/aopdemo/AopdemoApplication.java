@@ -18,6 +18,12 @@ public class AopdemoApplication {
 		return runner -> {
 			System.out.println("Hi, Mom!");
 
+			// call the business method
+			demoTheBeforeAdvice(theAccountDAO);
+
+			System.out.println("\n let's call it again");
+
+			// call the business method again
 			demoTheBeforeAdvice(theAccountDAO);
 		};
 	}
