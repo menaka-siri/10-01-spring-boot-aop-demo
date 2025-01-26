@@ -2,5 +2,5 @@ package com.example.aopdemo.dao;
 
 public interface MembershipDAO {
 
-    void addMember();
+    boolean addMember();
 }
