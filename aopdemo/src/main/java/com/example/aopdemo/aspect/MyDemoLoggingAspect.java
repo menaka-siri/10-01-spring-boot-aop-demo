@@ -14,7 +14,8 @@ public class MyDemoLoggingAspect {
 
 //    @Before("execution(public void com.example.aopdemo.dao.AccountDAO.addAccount())") // inside the brackets is the pointcut
 //    @Before("execution(public void add*())")
-    @Before("execution(* add*())")
+//    @Before("execution(* add*())")
+    @Before("execution(* add*(com.example.aopdemo.Account))")
     public void beforeAddAccountAdvice() { // this method can be any name
         System.out.println("\n=========>>> Executing @Before advice on method");
     }
