@@ -28,4 +28,9 @@ public class MyDemoLoggingAspect {
     public void beforeAddAccountAdvice() { // this method can be any name
         System.out.println("\n=========>>> Executing @Before advice on method");
     }
+
+    @Before("forDaoPackage()")
+    public void performApiAnalytics() {
+        System.out.println("\n=========>>> Perform API analytics");
+    }
 }
