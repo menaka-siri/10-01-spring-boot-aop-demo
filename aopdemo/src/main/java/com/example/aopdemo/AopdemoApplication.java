@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class AopdemoApplication {
 
@@ -20,8 +22,20 @@ public class AopdemoApplication {
 			System.out.println("Hi, Mom!");
 
 			// call the business method
-			demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
+//			demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
+			demoTheAfterReturningAdvice(theAccountDAO);
 		};
+	}
+
+	private void demoTheAfterReturningAdvice(AccountDAO theAccountDAO) {
+		List<Account> theAccounts = theAccountDAO.findAccounts();
+
+		System.out.println("\n\nMain Program: demoTheAfterReturningAdvice");
+		System.out.println("----");
+
+		System.out.println(theAccounts);
+
+		System.out.println("\n");
 	}
 
 	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
