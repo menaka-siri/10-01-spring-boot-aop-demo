@@ -27,9 +27,27 @@ public class MyDemoLoggingAspect {
         System.out.println("\n=====>>> Executing @AfterReturning on method: " + method);
 
         System.out.println("\n=====>>> result is: " + result);
+
+        // let's post-process the data ... let's modify it
+
+        // convert the account names to uppercase
+        convertAccountNamesToUpperCase(result);
+
+        System.out.println("\n=====>>> result is: " + result);
     }
 
-//    @Before("execution(public void com.example.aopdemo.dao.AccountDAO.addAccount())") // inside the brackets is the pointcut
+    private void convertAccountNamesToUpperCase(List<Account> result) {
+        // loop through accounts
+        for (Account tempAccount: result) {
+            // get uppercase version of name
+            String theUpperName = tempAccount.getName().toUpperCase();
+
+            // update the name on the account
+            tempAccount.setName(theUpperName);
+        }
+    }
+
+    //    @Before("execution(public void com.example.aopdemo.dao.AccountDAO.addAccount())") // inside the brackets is the pointcut
 //    @Before("execution(public void add*())")
 //    @Before("execution(* add*())")
 //    @Before("execution(* add*(com.example.aopdemo.Account))")
