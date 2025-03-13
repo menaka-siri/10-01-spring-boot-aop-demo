@@ -37,7 +37,9 @@ public class MyDemoLoggingAspect {
             System.out.println(e.getMessage());
 
             //give user a custom message
-            result = "Major accident! But no worries, your private AOP helicopter is on the way!";
+            // result = "Major accident! But no worries, your private AOP helicopter is on the way!";
+
+            throw e;
         }
 
         // get end timestamp
